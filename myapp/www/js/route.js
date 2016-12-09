@@ -4,7 +4,7 @@
  */
 angular.module('route', ['tabs.route', 'home.route'])
   .config(function ($urlRouterProvider) {
-    //如果上面匹配不成功则回退到指定页面。
-    $urlRouterProvider.otherwise('/tab/home');
 
+    //如果已经定义的路由匹配不成功则回退到指定页面。
+    $urlRouterProvider.otherwise('/tab/home');
   });
