@@ -49,11 +49,20 @@
     ![](./image/ionicStartAPP.bmp)
     
     **下载模板的过程有点长,一直等到下面界面。**
-    
+
     ![](./image/ionicStartAPPend.bmp)
 
+2. 添加平台
+    ``` shell
+    ionic platform add android
+    ```
+    ![](./image/ionicplatformandroid.bmp)
 
+    **下载 android 工程到项目中**
 
+    ![](./image/ionicplatformandroidadd.bmp)
+
+    
 
 
 
