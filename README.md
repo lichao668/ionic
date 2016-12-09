@@ -62,7 +62,13 @@
 
     ![](./image/ionicplatformandroidadd.bmp)
 
-    
+3. 将工程打包成 apk 
+    ``` shell
+    ionic build android
+    ```
+    **第一次打包时时间会很久需要耐心等待**
+
+    ![](./image/ionicbuild.bmp)
 
 
 
