@@ -1,26 +1,24 @@
+/// <reference path="../../../../ts/typings/globals/angular/index.d.ts" />
 /**
  * 路由模块
  */
-angular.module('route', ['starter.controllers', 'starter.services'])
-
-
-.config(function($stateProvider, $urlRouterProvider) {
+angular.module('route', ['home.route' ,'starter.controllers', 'starter.services'])
+.config(function ($stateProvider, $urlRouterProvider) {
 
   $stateProvider
 
-  // setup an abstract state for the tabs directive
-    .state('tab', {
+    .state('tab', { //路由名称
     url: '/tab',
-    abstract: true,
-    templateUrl: 'templates/tabs.html'
+    abstract: true, //定义为抽象路由
+    templateUrl: 'templates/tabs.html' //页面模板
   })
 
   .state('tab.dash', {
     url: '/dash',
-    views: {
+    views: { 
       'tab-dash': {
         templateUrl: 'templates/tab-dash.html',
-        controller: 'DashCtrl'
+        controller: 'DashCtrl' //页面控制器
       }
     }
   })
@@ -55,6 +53,6 @@ angular.module('route', ['starter.controllers', 'starter.services'])
   });
 
   //如果上面匹配不成功则回退到指定页面。
-  $urlRouterProvider.otherwise('/tab/dash');
+  $urlRouterProvider.otherwise('/tab/home');
 
 });
