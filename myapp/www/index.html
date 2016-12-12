@@ -51,6 +51,12 @@
   <script src="lib/lazyload.js"></script> <!-- https://npm.taobao.org/package/angular-imglazyload -->
   <link href="css/category/category.css" rel="stylesheet">
 
+  <!--商品列表功能模块的文件-->
+  <script src="area/goodsList/goodsList_controller.js"></script>
+  <script src="area/goodsList/goodsList_service.js"></script>
+  <script src="area/goodsList/goodsList_route.js"></script>
+  <link href="css/goodsList/goodsList.css" rel="stylesheet">
+
   <!--cart-->
   <script src="area/cart/cart_route.js"></script>
   <script src="area/cart/cart_controller.js"></script>
@@ -63,12 +69,6 @@
 </head>
 
 <body ng-app="starter">
-  <!--<ion-nav-bar class="bar-stable">
-    <ion-nav-back-button>
-    </ion-nav-back-button>
-  </ion-nav-bar>-->
-
-  
   <ion-nav-view></ion-nav-view>
 </body>
 
