@@ -2,11 +2,12 @@
 angular.module('home.controller', [])
 
 .controller('HomeCtrl', function ($scope) {
-  getHeaderSlideData();
+  getHeaderSlideData();//获取头部滚动条数据。
 
   // 监听视图完全加载之后的事件
   $scope.$on('$ionicView.afterEnter', function (e) {
     initHeaderSlide();
+    initToutiaoSlide();
   });
 
 
@@ -58,9 +59,16 @@ angular.module('home.controller', [])
       //observer:true,
       //observeParents:true
     });
-
-   
   }
+
+  // 初始化京东头条滚动条
+    function initToutiaoSlide() {
+      var toutiaoSwiper = new Swiper('#toutiaoSlider', {
+        direction: 'vertical',
+        autoplay: 2000,
+        loop: true
+      });
+    }
 
 
 
