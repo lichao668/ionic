@@ -2,7 +2,14 @@
 angular.module('home.controller', [])
 
 .controller('HomeCtrl', function ($scope) {
-    getHeaderSlideData();
+  getHeaderSlideData();
+
+  // 监听视图完全加载之后的事件
+  $scope.$on('$ionicView.afterEnter', function (e) {
+    initHeaderSlide();
+  });
+
+
   // 头部滚动条数据
   function getHeaderSlideData() {
     $scope.headerSlideData = [{
@@ -22,6 +29,41 @@ angular.module('home.controller', [])
       src: "img/home/home-headerSlide-5.jpg"
     }];
   }
+
+
+
+  // 初始化头部滚动条(轮播图)
+  function initHeaderSlide() {
+    var headerSwiper = new Swiper('#headerSlider', {
+      slidesPerView: 1,
+      paginationClickable: true,
+      centeredSlides: true,
+      autoplay: 2000,
+      autoplayDisableOnInteraction: false,
+      loop: true,
+      // 如果需要分页器
+      pagination: '.swiper-pagination',
+      // 改变自动更新
+      observer: true,
+      observeParents: true
+
+
+      //paginationClickable: true,
+      //autoplay: 2000,
+      //autoplayDisableOnInteraction: false,
+      //loop: true,
+      //// 如果需要分页器
+      //pagination: '.swiper-pagination',
+      //// 改变自动更新
+      //observer:true,
+      //observeParents:true
+    });
+
+   
+  }
+
+
+
 
 
 })
