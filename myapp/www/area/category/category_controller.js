@@ -1,5 +1,5 @@
 /// <reference path="../../../../../ts/typings/globals/angular/index.d.ts" />
-angular.module('category.controller', [])
+angular.module('category.controller', ['lazyload'])
 
 .controller('CategoryCtrl', function ($scope) {
 
