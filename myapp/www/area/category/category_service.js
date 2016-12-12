@@ -1,7 +1,7 @@
 /// <reference path="../../../../../ts/typings/globals/angular/index.d.ts" />
 
-angular.module('catagory.services', [])
+angular.module('category.services', [])
 
-  .factory('CatagoryFty', function () {
+  .factory('CategoryFty', function () {
     return null;
   });
