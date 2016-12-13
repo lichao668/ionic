@@ -13,6 +13,7 @@ angular.module('goodsList.controller', ['goodsList.service'])
 
     // 商品列表数据
     $scope.obj_goodsListData =[];
+    // 是否可以加载更多
     $scope.pms_isMoreItemsAvailable=true;
     // 分页查询对象
     $scope.obj_pagingInfo = {
@@ -39,21 +40,22 @@ angular.module('goodsList.controller', ['goodsList.service'])
     $scope.func_refreshGoodsList = function () {
 
       $scope.obj_pagingInfo.pageNum=1;
+      // 将商品编号传入到分页信息中。
       $scope.obj_pagingInfo.typeNumber=$stateParams.typeNumber;
       var message=JSON.stringify($scope.obj_pagingInfo.pageNum)
 
+      // 获取延迟对象
       var promise = GoodsListFty.refreshGoodsList(message);
       promise.then(
-        function (result) {
+        function (result) { //成功
           if(result!=null){
             $scope.obj_goodsListData = result;
             $scope.pms_isMoreItemsAvailable=true;
           }else{
             $scope.pms_isMoreItemsAvailable=false;
           }
-
         },
-        function (reason) {
+        function (reason) { //失败
           alert(reason);
         }
       ).finally(function () {
@@ -64,6 +66,7 @@ angular.module('goodsList.controller', ['goodsList.service'])
 
     // 获取更多数据列表
     $scope.func_loadMoreGoodsList=function(){
+      // 遮罩
       $ionicLoading.show({
         template: "正在载入数据，请稍后..."
       });
@@ -94,8 +97,9 @@ angular.module('goodsList.controller', ['goodsList.service'])
       ).finally(function () {
         // 停止广播infiniteScroll
         $scope.$broadcast('scroll.infiniteScrollComplete');
+
         setTimeout(function(){
-          $ionicLoading.hide();
+          $ionicLoading.hide(); //关闭遮罩层。
         },1000)
       });
 

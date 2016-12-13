@@ -150,13 +150,15 @@ angular.module('goodsList.service', [])
             src: 'img/goodsList/goods9.jpg'
           }
         ];
-
+        // 定义延迟对象
         var deferred = $q.defer();
+        // 设置延迟对象 成功状态 中的数据。
         deferred.resolve(obj_goodsListData);
         return deferred.promise;
       },
       getAllData: function () {
         console.log("6");
+
         var deferred = $q.defer();
 
         setTimeout(function () {
@@ -166,9 +168,9 @@ angular.module('goodsList.service', [])
 
         ////$http的get请求方式
         //$http.get('localhost:8080').success(function(data,status,headers,config){
-        //    deferred.resolve(data);
+        //    deferred.resolve(data); //请求成功后返回数据
         //}).error(function(data,status,headers,config){
-        //    deferred.reject(data);
+        //    deferred.reject(data);//请求失败后返回数据
         //})
 
         return deferred.promise;
